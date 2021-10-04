@@ -374,7 +374,7 @@ def connect():
     data['State'] = data['tenantid'].apply(lambda x: 'Punjab' if x[0:2]=='pb' else '')
 
     data = data.drop(columns=['tenantid','locality'])
-    data = data.drop_duplicates(subset=['Application Number'],keep='last')
+    data = data.drop_duplicates(subset=['Application Number'],keep='last').reset_index(drop=True)
     data = data[['eDCR Number',
     'Application Number',
  'Application Date',
